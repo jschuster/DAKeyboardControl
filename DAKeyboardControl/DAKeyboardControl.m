@@ -520,7 +520,10 @@ static char UIViewIsPanning;
             }
         }
     }
-    [self swizzled_addSubview:subview];
+    if(![subview isEqual:self])
+    {
+        [self swizzled_addSubview:subview];
+    }
 }
 
 #pragma mark - Property Methods
