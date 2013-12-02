@@ -483,7 +483,9 @@ static char UIViewIsPanning;
     {
         // Re assign the focus
         [inputView resignFirstResponder];
-        [inputView becomeFirstResponder];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [inputView becomeFirstResponder];
+        });
     }
 }
 
